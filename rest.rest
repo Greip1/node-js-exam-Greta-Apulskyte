@@ -1,4 +1,25 @@
 
 GET http://localhost:3001
 ###
+###
 
+GET http://localhost:3001/users
+###
+### register
+POST http://localhost:3001/register
+Content-Type: application/json
+
+{    
+    "full_name": "Samuel Samson",
+    "email": "samuel@email.lt",
+    "password": "123456"
+    }
+###
+### login
+POST http://localhost:3001/login
+Content-Type: application/json
+
+{    
+    "email": "gabriele@xxx.lt",
+    "password": "123456"
+    }
