@@ -1,6 +1,6 @@
-const { getAllUsersDb, registerUserDb } = require('../model/usersModel');
+const { getAllUsersDb, registerUserDb, findUserByEmail } = require('../model/usersModel');
 
-const { hashPassword } = require('../utils/helper');
+const { hashPassword, passwordsMatch, generateToken } = require('../utils/helper');
 // ------------------------------------------
 async function getUsers(req, res) {
   try {
@@ -33,35 +33,29 @@ async function regUser(req, res) {
   }
 }
 
-// ========
-// async function loginUser(req, res) {}
-//   const gautasEmail = req.body.email;
-//   const gautasSlaptazodis = req.body.password;
+async function loginUser(req, res) {
+  const gotEmail = req.body.email;
+  const gotPassword = req.body.password;
 
-//   // patikrinti ar yra toks email kaip gautas
-//   const foundUserArr = await findUserByEmail(gautasEmail);
-//   // nes findUserByEmail grazina visada masyva
-//   const foundUser = foundUserArr[0];
-//   console.log('foundUser ===', foundUser);
-//   // jei nera 400 email or password not found
-//   if (!foundUser) {
-//     res.status(400).json('email or password not found (email)');
-//     return;
-//   }
-//   // jei yra tikrinam ar sutampa slaptazodis
-//   // bcrypt.compareSync(ivestas slaptazodis, issaugotas hashed slaptazodis)
-//   if (!passWordsMatch(gautasSlaptazodis, foundUser.password)) {
-//     res.status(400).json('email or password not found (pass)');
-//     return;
-//   }
-//   // sugeneruoti jwt token
-//   const payload = { userId: foundUser.id };
-//   const token = generateJwtToken(payload);
-//   // console.log('token ===', token);
-//   res.json({ success: true, token });
+  const foundUserArr = await findUserByEmail(gotEmail);
+  const foundUser = foundUserArr[0];
+  console.log('foundUser ===', foundUser);
+  if (!foundUser) {
+    res.status(400).json('This email or password was not found (email)');
+    return;
+  }
+  if (!passwordsMatch(gotPassword, foundUser.password)) {
+    res.status(400).json('This email or password was not found(password)');
+    return;
+  }
+  const payload = { userId: foundUser.id };
+  const token = generateToken(payload);
+  res.json({ success: true, token });
+}
 
 // ------------------------------
 module.exports = {
   getUsers,
   regUser,
+  loginUser,
 };

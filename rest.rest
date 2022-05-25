@@ -10,8 +10,8 @@ POST http://localhost:3001/register
 Content-Type: application/json
 
 {    
-    "full_name": "Samuel Samson",
-    "email": "samuel@email.lt",
+    "full_name": "John Johnson",
+    "email": "john.john@email.com",
     "password": "123456"
     }
 ###
