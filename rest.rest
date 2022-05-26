@@ -1,7 +1,7 @@
-
+### ============================================================
 GET http://localhost:3001
 ###
-###
+### users
 
 GET http://localhost:3001/users
 ###
@@ -10,8 +10,8 @@ POST http://localhost:3001/register
 Content-Type: application/json
 
 {    
-    "full_name": "John Johnson",
-    "email": "john.john@email.com",
+    "full_name": "Joan Joanes",
+    "email": "joan.john@email.com",
     "password": "123456"
     }
 ###
@@ -20,6 +20,31 @@ POST http://localhost:3001/login
 Content-Type: application/json
 
 {    
-    "email": "gabriele@xxx.lt",
+    "full_name": "Joan Joanes",
+    "email": "joan.john@email.com",
     "password": "123456"
     }
+### ===========================================================================
+### post acc
+POST http://localhost:3001/accounts 
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlhdCI6MTY1MzU2MjQwNiwiZXhwIjoxNjUzNTY5NjA2fQ.KuZkm9KDo_1QS2JJYLD846KCNDfejUnIp0rNGhaKG0k
+
+{
+"group_id": "1", 
+"user_id": "6"
+}
+###=============================================================================
+### post get bill
+GET http://localhost:3001/bills/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlhdCI6MTY1MzU2MjQwNiwiZXhwIjoxNjUzNTY5NjA2fQ.KuZkm9KDo_1QS2JJYLD846KCNDfejUnIp0rNGhaKG0k
+###
+POST http://localhost:3001/bills?group_id=2
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlhdCI6MTY1MzU2MjQwNiwiZXhwIjoxNjUzNTY5NjA2fQ.KuZkm9KDo_1QS2JJYLD846KCNDfejUnIp0rNGhaKG0k
+
+{
+"group_id": 2, 
+"amount": 3500, 
+"description": "For Flight ticket"
+}

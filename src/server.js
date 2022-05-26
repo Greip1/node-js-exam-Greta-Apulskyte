@@ -4,6 +4,8 @@ const cors = require('cors');
 
 const { PORT } = require('./config');
 const userRoutes = require('./routes/userRoutes');
+const billsRoute = require('./routes/billsRoutes');
+const accountRoute = require('./routes/accRoutes');
 
 const app = express();
 
@@ -13,6 +15,8 @@ app.use(morgan('dev'));
 app.use(cors());
 
 app.use('/', userRoutes);
+app.use('/', billsRoute);
+app.use('/', accountRoute);
 
 // routes
 app.get('/', (req, res) => {
@@ -21,6 +25,6 @@ app.get('/', (req, res) => {
 
 // 404
 app.all('*', (req, res) => {
-  res.status(404).json({ error: 'Page not found' });
+  res.status(404).json({ error: 'Page not found (*)' });
 });
 app.listen(PORT, () => console.log('server online on PORT', PORT));

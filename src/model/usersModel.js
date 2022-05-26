@@ -1,20 +1,5 @@
-const mysql = require('mysql2/promise');
-const { dbConfig } = require('../config');
+const { executeDb } = require('../utils/helper');
 
-// --------------------------
-async function executeDb(sql, dataToDBArr = []) {
-  let conn;
-  try {
-    conn = await mysql.createConnection(dbConfig);
-    const [result] = await conn.execute(sql, dataToDBArr);
-    return result;
-  } catch (error) {
-    console.log('Error in eexecuteDb!!', error);
-    throw new Error('Error in eexecuteDb!!');
-  } finally {
-    conn?.end();
-  }
-}
 // --------------------------
 function getAllUsersDb() {
   const sql = 'SELECT * FROM users';
@@ -43,4 +28,5 @@ module.exports = {
   addUserToDb,
   registerUserDb,
   findUserByEmail,
+  executeDb,
 };

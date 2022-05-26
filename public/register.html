@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/register.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <img
+        class="header-logo"
+        src="./img/0bc3539c8c9721edbaf4433700105a78.jpeg"
+        alt="logo"
+      />
+      <h1 class="header-title">Split Bill Manager</h1>
+      <p class="header-text">BEST IN MARKET</p>
+    </header>
+    <main>
+      <div class="form-container">
+        <form id="register">
+          <h3 class="error"></h3>
+          <h2 class="form-header">Register</h2>
+
+          <label for="fullName"> Full Name</label>
+          <input type="text" name="fullName" />
+          <p class="error-msg"></p>
+
+          <label for="email"> Email</label>
+          <input type="email" name="email" />
+          <p class="error-msg"></p>
+
+          <label for="password"> Password</label>
+          <input type="password" name="password" />
+          <p class="error-msg"></p>
+
+          <label for="repPassword">Repeat Password</label>
+          <input type="password" name="repPassword" />
+          <br />
+          <button type="submit">Register</button>
+        </form>
+        <div class="after-form-container">
+          <p class="after-form-container-text">
+            Or perhaps, just <a href="./login.html">login?</a>
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
