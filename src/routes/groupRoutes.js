@@ -1,9 +1,9 @@
 const express = require('express');
-const { getBillbyGroupId } = require('../controller/billsControler');
-const { validateToken } = require('../middleware');
+const getAllGroups = require('../controller/groupController');
+const { validateToken } = require('../middleWare');
 
-groupRoute.get('/groups/:group_id', validateToken, getBillbyGroupId);
+const groupRoute = express.Router();
 
-// is accounts kur yra user ir group id
+groupRoute.get('/groups', validateToken, getAllGroups);
 
 module.exports = groupRoute;

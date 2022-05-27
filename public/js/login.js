@@ -34,7 +34,7 @@ formEl.addEventListener('submit', async (event) => {
   console.log('loginObj ===', loginObj);
   // ------------------------------------------------
   clearErrors();
-  checkInput(loginObj.email, 'email', ['required', 'minLength-4', 'email', 'include-@.']);
+  checkInput(loginObj.email, 'email', ['required', 'minLength-4', 'email', 'include-@']);
   checkInput(loginObj.password, 'password', ['required', 'minLength-5', 'maxLength-10']);
   console.log('FE errorsArr ===', errorsArr);
   // --------------------------------------------------
@@ -60,7 +60,7 @@ formEl.addEventListener('submit', async (event) => {
     const { token } = dataInJs;
     localStorage.setItem('articlesToken', token);
 
-    window.location.replace('index.html');
+    window.location.replace('groups.html');
   } else {
     console.log('login fail');
     handleError(dataInJs);
@@ -88,7 +88,3 @@ function clearErrors() {
     htmlElement.previousElementSibling.classList.remove('invalid-input');
   });
 }
-// const errrors = [
-//   { message: '"email" is not allowed to be empty', field: 'email' },
-//   { message: '"password" is not allowed to be empty', field: 'password' },
-// ];

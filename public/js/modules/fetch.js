@@ -1,8 +1,8 @@
-export const BASE_URL = 'http://localhost:3000';
+const baseUrl = 'http://localhost:3001';
 
 export async function getFetch(endpoint, token) {
   try {
-    const resp = await fetch(`${BASE_URL}/${endpoint}`, {
+    const resp = await fetch(`${baseUrl}/${endpoint}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -10,8 +10,19 @@ export async function getFetch(endpoint, token) {
     const dataInJs = await resp.json();
     return dataInJs;
   } catch (error) {
-    console.warn('erro in getFetch', error);
+    console.warn('error in getFetch', error);
   }
 }
-
-export async function postFetch(endpoint, data) {}
+export async function postFetch(endpoint, token, value) {
+  try {
+    const resp = await fetch(`${baseUrl}/${endpoint}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', authorization: `Bearer ${token} ` },
+      body: JSON.stringify(value),
+    });
+    const atsinJs = await resp.json();
+    console.log(atsinJs);
+  } catch (error) {
+    console.warn('error in postFetch', error);
+  }
+}

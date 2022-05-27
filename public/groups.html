@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Groups</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/groups.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1 class="header-title">Split Bill Manager</h1>
+      <p class="header-text">BEST IN MARKET</p>
+    </header>
+    <main>
+      <div class="main-card-container">
+        <h1>Select Group</h1>
+        <div class="cards-container">
+          <h2 class="loading">LOADING...</h2>
+        </div>
+
+        <div class="main-add-group-container">
+          <h3 class="add-group-title">Add group</h3>
+          <br />
+          <form id="add-group-from">
+            <label for="add-group">Groups list</label>
+            <select name="add-group" id="add-group-select">
+              <option value="add-group"></option></select
+            ><br />
+            <button class="btn add-group-btn">Add</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

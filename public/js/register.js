@@ -1,7 +1,6 @@
 import { clearErrorsArr, checkInput, errorsArr } from './modules/validation.js';
 //
 
-console.log('register here');
 const baseUrl = 'http://localhost:3001';
 
 const formEl = document.forms.register;
@@ -53,7 +52,7 @@ formEl.addEventListener('submit', async (event) => {
 
   clearErrors();
   checkInput(regObj.full_name, 'fullName', ['required', 'minLength-5']);
-  checkInput(regObj.email, 'email', ['required', 'minLength-4', 'email', 'include-@.']);
+  checkInput(regObj.email, 'email', ['required', 'minLength-4', 'email', 'include-@']);
   checkInput(regObj.password, 'password', ['required', 'minLength-5', 'maxLength-10']);
   console.log('FE errorsArr ===', errorsArr);
   // --------------------------------------------------
@@ -68,7 +67,7 @@ formEl.addEventListener('submit', async (event) => {
 });
 
 function handleError(msg) {
-  // errroEl.textContent = '';
+  errroEl.textContent = '';
   if (typeof msg === 'string') {
     errroEl.textContent = msg;
   }

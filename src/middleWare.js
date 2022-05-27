@@ -31,10 +31,12 @@ async function validateToken(req, res, next) {
   }
   try {
     const tokenPayload = jwt.verify(tokenFromHeaders, jwtSecret);
-    // console.log('tokenPayload', tokenPayload);
-    const usersId = tokenPayload.usersId;
+    console.log('tokenPayload', tokenPayload);
+    console.log('tokenPayload.userId====', tokenPayload.userId);
+    const userIdFromReq = tokenPayload.userId;
     // budas perduoti userId i tolimesne funkcija
-    req.usersId = usersId;
+    req.userId = userIdFromReq;
+    console.log('userIdFromReq', userIdFromReq);
     next();
   } catch (error) {
     console.log(error);

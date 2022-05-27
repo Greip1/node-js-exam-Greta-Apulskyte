@@ -6,11 +6,19 @@ async function addUserToAccount(req, res) {
 
   const tokenFromHeaders = req.headers.authorization.split(' ')[1];
 
-  const idFromToken = req.usersId;
+  const idFromToken = req.userId;
+  console.log('idFromToken', idFromToken);
+
   //
 
-  console.log(group_id, user_id, tokenFromHeaders);
-  // console.log('idFromtoken ====', idFromToken);
+  console.log(
+    'group id ==',
+    group_id,
+    'user id =',
+    user_id,
+    'tokenFromHeaders',
+    tokenFromHeaders
+  );
 
   try {
     const saveResult = await addAccountDb(group_id, idFromToken);
@@ -29,6 +37,7 @@ async function addUserToAccount(req, res) {
 
 async function getAccountJoinGroup(req, res) {
   const idFromToken = req.userId;
+  console.log('idFromToken', idFromToken);
   try {
     const accountGroupArr = await accountsJoinGroupsDb(idFromToken);
     res.json(accountGroupArr);

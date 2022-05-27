@@ -3,9 +3,11 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 const { PORT } = require('./config');
+
 const userRoutes = require('./routes/userRoutes');
 const billsRoute = require('./routes/billsRoutes');
 const accountRoute = require('./routes/accRoutes');
+const groupsRoute = require('./routes/groupRoutes');
 
 const app = express();
 
@@ -17,6 +19,7 @@ app.use(cors());
 app.use('/', userRoutes);
 app.use('/', billsRoute);
 app.use('/', accountRoute);
+app.use('/', groupsRoute);
 
 // routes
 app.get('/', (req, res) => {
