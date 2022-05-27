@@ -36,7 +36,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlhd
 }
 ### post acc
 GET http://localhost:3001/accounts 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlhdCI6MTY1MzY0NDU1MiwiZXhwIjoxNjUzNjUxNzUyfQ.saWN9Y5YSh9wVJ2cZwwL8UU9Z0jkRdpkrqLiNkIaGaM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlhdCI6MTY1MzY2MzI0MywiZXhwIjoxNjUzNjcwNDQzfQ.lvu2XZe-JswPyhhM6kcnEjLgA0txrLjE0U8OnPxnzcQ
 
 ###=============================================================================
 ### post get bill

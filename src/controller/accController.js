@@ -2,7 +2,7 @@ const { addAccountDb, accountsJoinGroupsDb } = require('../model/accModel');
 
 // ---------------------------------------------
 async function addUserToAccount(req, res) {
-  const { group_id, user_id } = req.body;
+  const { group_id } = req.body;
 
   const tokenFromHeaders = req.headers.authorization.split(' ')[1];
 
@@ -11,14 +11,14 @@ async function addUserToAccount(req, res) {
 
   //
 
-  console.log(
-    'group id ==',
-    group_id,
-    'user id =',
-    user_id,
-    'tokenFromHeaders',
-    tokenFromHeaders
-  );
+  // console.log(
+  //   'group id ==',
+  //   group_id,
+  //   'user id =',
+  //   user_id,
+  //   'tokenFromHeaders',
+  //   tokenFromHeaders
+  // );
 
   try {
     const saveResult = await addAccountDb(group_id, idFromToken);

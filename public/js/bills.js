@@ -8,13 +8,13 @@ const destDiv = document.querySelector('.table-data');
 
 const groupId = window.location.search.split('=');
 
-// --------------------------
+// ====================================
 if (!token) {
   alert('Please login');
   window.location.replace('login.html');
 }
-// bills/:group_id
-// --------------------------------------------
+// ====================================
+
 async function getMyGroups(token) {
   const groupsArr = await getFetch(`bills/${groupId[1]}`, token);
   console.log('groupsArr ===', groupsArr);

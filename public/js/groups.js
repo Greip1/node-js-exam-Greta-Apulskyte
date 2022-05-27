@@ -16,7 +16,7 @@ if (!token) {
 // --------------------------------------------
 async function getMyGroups(articlesToken) {
   const groupsArr = await getFetch('accounts', articlesToken);
-  console.log('groupsArr ===', groupsArr);
+  // console.log('groupsArr ===', groupsArr);
   if (groupsArr.success === false) {
     alert('Neaktyvus vartotojas, prasome prisijungti');
     window.location.replace('login.html');
@@ -45,11 +45,13 @@ function createCard(obj) {
   const selBtn = creatElFn('button', 'Select', 'card-button btn', cardEl);
 
   selBtn.addEventListener('click', () => {
-    console.log('group id', obj.group_id);
+    // console.log('group id', obj.group_id);
     window.location.href = `bills.html?group_id=${obj.group_id}`;
   });
 }
-
+// ================================================
+// ================================================
+// ================================================
 // ================================================
 // ===============================================extra select
 function createSelectOptions(obj) {
@@ -59,7 +61,7 @@ function createSelectOptions(obj) {
     'card-id',
     selectEl
   );
-  selOptionEL.setAttribute('value', 'add-group');
+  selOptionEL.setAttribute('value', `${obj.id}`);
 }
 
 function renderAllGroups(arr) {
@@ -70,12 +72,11 @@ function renderAllGroups(arr) {
 
 async function getAllGroupsToSelect(articlesToken) {
   const groupsArr = await getFetch('groups', articlesToken);
-  console.log('groupsArr ===', groupsArr);
+  // console.log('groupsArr ===', groupsArr);
   if (groupsArr.success === false) {
     alert('Neaktyvus vartotojas, prasome prisijungti');
     window.location.replace('login.html');
   }
-  //   renderAllGroups(groupsArr, destEl);
   destDiv.textContent = '';
   renderAllGroups(groupsArr);
 
@@ -86,46 +87,20 @@ getAllGroupsToSelect(token);
 // ====================================add group
 // ====================================
 
-const addGroupBtn = document.querySelector('.add-group-btn');
+const btnSubmitEl = document.querySelector('.add-group-btn');
 
-// addGroupBtn.addEventListener('submit', addNewGroup);
-
-// function addNewGroup(e) {
-//   e.preventDefault();
-
-//   async function addGroupFetch(articlesToken) {
-//     const groupsArr = await postFetch('accounts', articlesToken, selectEl.value);
-//     console.log('groupsArr ===', groupsArr);
-//     if (groupsArr.success === false) {
-//       alert('Neaktyvus vartotojas, prasome prisijungti');
-//       window.location.replace('login.html');
-//     }
-//   }
-// }
-// ==================================================
-
-const formEl = document.forms[1];
-
-//---------------------------
-// const btnEl = document.querySelector('#create-btn');
-// const token = localStorage.getItem('articlesToken');
-
-// const errEl = document.getElementById('err');
-//----------------------------
-//----------------------------
-
-addGroupBtn.addEventListener('click', (e) => {
+btnSubmitEl.addEventListener('click', (e) => {
   e.preventDefault();
-  console.log('click');
   const newArticleOb = articleString();
-  console.log(newArticleOb);
+  // console.log(newArticleOb);
 
   addArticle(newArticleOb);
+  getMyGroups(token);
 });
 function articleString() {
+  // console.log('select el value', selectEl.value);
   const articleObj = {
-    group_id: selectEl.value.id,
-    user_id: user_id,
+    group_id: selectEl.value,
   };
   return articleObj;
 }
@@ -136,6 +111,7 @@ async function addArticle(newArticle) {
     body: JSON.stringify(newArticle),
   });
   const atsinJs = await resp.json();
-  console.log(atsinJs);
+  // console.log(atsinJs);
   window.location.href = 'groups.html';
 }
+// =========
