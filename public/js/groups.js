@@ -21,7 +21,6 @@ async function getMyGroups(articlesToken) {
     alert('Neaktyvus vartotojas, prasome prisijungti');
     window.location.replace('login.html');
   }
-  //   renderCards(groupsArr, destEl);
   destDiv.textContent = '';
   renderCards(groupsArr);
 }

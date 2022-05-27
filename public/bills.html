@@ -9,28 +9,31 @@
     <script type="module" src="./js/bills.js" defer></script>
   </head>
   <body>
-    <h2>this is BILLLLLLLS</h2>
     <header>
-      <h1 class="header-title">Split Bill Manager</h1>
+      <h2 class="header-title">Split Bill Manager</h2>
       <p class="header-text">BEST IN MARKET</p>
     </header>
     <main>
-      <div class="main-card-container">
-        <h1>Select Group</h1>
-        <div class="cards-container">
-          <!-- <h3 class="loading">Loading</h3> -->
+      <button class="btn btn-logout"><a href="./login.html">Log out</a></button>
 
+      <div class="main-card-container">
+        <h1 class="main-header">Group's bills</h1>
+        <div class="table-container">
           <table class="table-data"></table>
         </div>
+        <button class="btn btn-logout"><a href="./groups.html">Back to Groups</a></button>
 
-        <div class="main-add-group-container">
-          <h3 class="add-group-title">Add group</h3>
+        <div class="add-bill-container">
+          <h3 class="add-group-title">Add bill</h3>
           <br />
-          <form id="add-group-from">
-            <label for="add-group">Groups list</label>
-            <select name="add-group" id="add-group-select">
-              <option value="add-group"></option></select
-            ><br />
+          <form id="add-bill-from">
+            <p id="error"></p>
+            <label for="amount">Amount</label>
+            <input type="number" name="amount" />
+
+            <label for="description">Description</label>
+            <input type="text" name="description" />
+            <br />
             <button class="btn add-group-btn">Add</button>
           </form>
         </div>
