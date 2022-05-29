@@ -5,4 +5,12 @@ function getAllGroupsDb() {
   const sql = 'SELECT * FROM groups';
   return executeDb(sql, []);
 }
-module.exports = getAllGroupsDb;
+
+function postGroupsDb(name) {
+  const sql = 'INSERT INTO groups (name) VALUES (?)';
+  return executeDb(sql, [name]);
+}
+module.exports = {
+  getAllGroupsDb,
+  postGroupsDb,
+};

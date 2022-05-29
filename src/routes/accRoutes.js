@@ -11,6 +11,4 @@ accountRoute.get('/accounts', validateToken, getAccountJoinGroup);
 // =====================================
 accountRoute.post('/accounts', validateToken, addUserToAccount);
 
-// =====================================
-
 module.exports = accountRoute;

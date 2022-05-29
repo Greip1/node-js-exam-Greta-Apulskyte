@@ -21,7 +21,7 @@ export async function postFetch(endpoint, token, value) {
       body: JSON.stringify(value),
     });
     const atsinJs = await resp.json();
-    console.log(atsinJs);
+    return atsinJs;
   } catch (error) {
     console.warn('error in postFetch', error);
   }

@@ -21,18 +21,39 @@
           <h2 class="loading">LOADING...</h2>
         </div>
 
-        <div class="main-add-group-container">
-          <h3 class="add-group-title">Add group</h3>
-          <br />
-          <form id="add-group-from">
-            <label for="add-group">Groups list</label>
-            <select name="add-group" id="add-group-select">
-              <!-- <option value="add-group"></option> --></select
-            ><br />
-            <button class="btn add-group-btn">Add</button>
-          </form>
+        <div class="creating-adding-groups-container">
+          <!--  -->
+          <div class="add-group-container">
+            <h3 class="add-group-title">Asign group to your account</h3>
+            <br />
+            <form id="add-group-from">
+              <label class="form-label-title" for="add-group">Groups list</label><br />
+              <select name="add-group" id="add-group-select"></select
+              ><br />
+              <button class="btn add-group-btn">Add</button>
+            </form>
+          </div>
+          <!--  -->
+          <div class="create-group-container">
+            <h3 class="create-group-title">Create new group</h3>
+            <br />
+            <p id="error"></p>
+            <form id="create-group-from">
+              <label class="form-label-title" for="create-group">Group name</label><br />
+              <input
+                type="text "
+                name="create-group"
+                id="create-group-input"
+                placeholder="New group name"
+              />
+              <br />
+              <button id="create-group-btn" class="btn create-group-btn">Create</button>
+            </form>
+          </div>
+          <!--  -->
         </div>
       </div>
     </main>
+    <footer>Copyright© Greta 2022</footer>
   </body>
 </html>

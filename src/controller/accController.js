@@ -9,17 +9,6 @@ async function addUserToAccount(req, res) {
   const idFromToken = req.userId;
   console.log('idFromToken', idFromToken);
 
-  //
-
-  // console.log(
-  //   'group id ==',
-  //   group_id,
-  //   'user id =',
-  //   user_id,
-  //   'tokenFromHeaders',
-  //   tokenFromHeaders
-  // );
-
   try {
     const saveResult = await addAccountDb(group_id, idFromToken);
     if (saveResult.affectedRows === 1) {
@@ -46,6 +35,7 @@ async function getAccountJoinGroup(req, res) {
     res.sendStatus(500);
   }
 }
+
 // ----------------------
 module.exports = {
   addUserToAccount,

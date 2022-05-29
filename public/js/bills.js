@@ -1,6 +1,5 @@
 import { getFetch, postFetch } from './modules/fetch.js';
 import { creatElFn } from './modules/helper.js';
-console.log('this works just fine');
 
 const token = localStorage.getItem('articlesToken');
 
@@ -8,6 +7,13 @@ const destDiv = document.querySelector('.table-data');
 
 const groupId = window.location.search.split('=');
 
+const groupTitle = document.querySelector('.groups-title');
+const groupTitleSplitName = window.location.href
+  .split('+')[1]
+  .split('/')[0]
+  .split('%20')
+  .join(' ');
+groupTitle.textContent = groupTitleSplitName;
 // ====================================
 if (!token) {
   alert('Please login');
@@ -17,7 +23,7 @@ if (!token) {
 
 async function getMyGroups(token) {
   const groupsArr = await getFetch(`bills/${groupId[1]}`, token);
-  console.log('groupsArr ===', groupsArr);
+  // console.log('groupsArr ===', groupsArr);
   if (groupsArr.success === false) {
     alert('Neaktyvus vartotojas, prasome prisijungti');
     window.location.replace('login.html');
@@ -64,6 +70,8 @@ btnSubmitEl.addEventListener('click', (e) => {
 
   addArticle(newBillOb);
   getMyGroups(token);
+  inputAmountEl.value = '';
+  inputDescriptionEl.value = '';
 });
 
 function articleString() {
@@ -75,7 +83,5 @@ function articleString() {
   return articleObj;
 }
 async function addArticle(newBill) {
-  const resp = await postFetch(`bills?group_id=${groupId[1]}`, token, newBill);
-  const atsinJs = await resp.json();
-  console.log(atsinJs);
+  await postFetch(`bills?group_id=${groupId[1]}`, token, newBill);
 }

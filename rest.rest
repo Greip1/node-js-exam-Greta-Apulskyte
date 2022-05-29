@@ -55,6 +55,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlhd
 ###
 ### groups =============================
 GET http://localhost:3001/groups
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlhdCI6MTY1MzU4MTk1MCwiZXhwIjoxNjUzNTg5MTUwfQ.RG091qWLMmP-rHIPrWuKmyBrtMTCJg-elFKsSVL3QAg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjksImlhdCI6MTY1MzgyMTA5NCwiZXhwIjoxNjUzODI4Mjk0fQ.Xu4sxX6RFVJ6OHfp2EbUpHB8ijiZx85MKyN7JL_F2Vw
 
 ###
+### groups =============================
+GET http://localhost:3001/accounts/dist
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjksImlhdCI6MTY1MzgyMTA5NCwiZXhwIjoxNjUzODI4Mjk0fQ.Xu4sxX6RFVJ6OHfp2EbUpHB8ijiZx85MKyN7JL_F2Vw
+
+###
+
+POST http://localhost:3001/groups
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjksImlhdCI6MTY1MzgyMTA5NCwiZXhwIjoxNjUzODI4Mjk0fQ.Xu4sxX6RFVJ6OHfp2EbUpHB8ijiZx85MKyN7JL_F2Vw
+
+{
+"name": "Trip back home"
+}

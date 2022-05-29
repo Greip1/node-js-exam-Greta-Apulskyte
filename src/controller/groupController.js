@@ -1,4 +1,4 @@
-const getAllGroupsDb = require('../model/groupModel');
+const { getAllGroupsDb, postGroupsDb } = require('../model/groupModel');
 
 // ------------------------------------------
 async function getAllGroups(req, res) {
@@ -11,4 +11,24 @@ async function getAllGroups(req, res) {
   }
 }
 
-module.exports = getAllGroups;
+async function postAllGroups(req, res) {
+  const { name } = req.body;
+
+  try {
+    const saveResult = await postGroupsDb(name);
+    if (saveResult.affectedRows === 1) {
+      res.status(201).json('Group successfully added');
+      return;
+    }
+    res.status(400).json('Error in adding new group ');
+  } catch (error) {
+    console.log('POST /groups ===', error);
+
+    res.sendStatus(500);
+  }
+}
+
+module.exports = {
+  getAllGroups,
+  postAllGroups,
+};

@@ -12,7 +12,6 @@ function accountsJoinGroupsDb(id) {
   return executeDb(sql, [id]);
 }
 
-// ---------------------------------------
 module.exports = {
   addAccountDb,
   accountsJoinGroupsDb,

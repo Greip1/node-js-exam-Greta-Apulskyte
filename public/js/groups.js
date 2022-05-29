@@ -13,10 +13,8 @@ if (!token) {
   window.location.replace('login.html');
 }
 
-// --------------------------------------------
 async function getMyGroups(articlesToken) {
   const groupsArr = await getFetch('accounts', articlesToken);
-  // console.log('groupsArr ===', groupsArr);
   if (groupsArr.success === false) {
     alert('Neaktyvus vartotojas, prasome prisijungti');
     window.location.replace('login.html');
@@ -25,16 +23,11 @@ async function getMyGroups(articlesToken) {
   renderCards(groupsArr);
 }
 
-// ---------------------------------------------
-
-//---------------------------------------------
-
 function renderCards(arr) {
   arr.forEach((articleObj) => {
     createCard(articleObj);
   });
 }
-// -------------------------------------------
 
 function createCard(obj) {
   const cardEl = creatElFn('div', '', 'card', destDiv);
@@ -45,15 +38,13 @@ function createCard(obj) {
   const selBtn = creatElFn('button', 'Select', 'card-button btn', cardEl);
 
   selBtn.addEventListener('click', () => {
-    // console.log('group id', obj.group_id);
-    window.location.href = `bills.html?group_id=${obj.group_id}`;
+    window.location.href = `bills.html?/+${obj.name}/group_id=${obj.group_id}`;
   });
 }
+
 // ================================================
 // ================================================
-// ================================================
-// ================================================
-// ===============================================extra select
+// ===============================================extra task select
 function createSelectOptions(obj) {
   const selOptionEL = creatElFn(
     'option',
@@ -72,7 +63,6 @@ function renderAllGroups(arr) {
 
 async function getAllGroupsToSelect(articlesToken) {
   const groupsArr = await getFetch('groups', articlesToken);
-  // console.log('groupsArr ===', groupsArr);
   if (groupsArr.success === false) {
     alert('Neaktyvus vartotojas, prasome prisijungti');
     window.location.replace('login.html');
@@ -84,34 +74,56 @@ async function getAllGroupsToSelect(articlesToken) {
 }
 getAllGroupsToSelect(token);
 
-// ====================================add group
+// ====================================asign group
 // ====================================
 
 const btnSubmitEl = document.querySelector('.add-group-btn');
 
 btnSubmitEl.addEventListener('click', (e) => {
   e.preventDefault();
-  const newArticleOb = articleString();
-  // console.log(newArticleOb);
+  const newGroupOb = asignGroupString();
 
-  addArticle(newArticleOb);
+  asignGroup(newGroupOb);
   getMyGroups(token);
 });
-function articleString() {
-  // console.log('select el value', selectEl.value);
+function asignGroupString() {
   const articleObj = {
     group_id: selectEl.value,
   };
   return articleObj;
 }
-async function addArticle(newArticle) {
-  const resp = await fetch('http://localhost:3001/accounts', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', authorization: `Bearer ${token} ` },
-    body: JSON.stringify(newArticle),
-  });
-  const atsinJs = await resp.json();
-  // console.log(atsinJs);
-  window.location.href = 'groups.html';
+
+async function asignGroup(newGr) {
+  postFetch('accounts', token, newGr);
 }
-// =========
+// ================================================================================================
+// ============add new group
+
+const inputNameEl = document.getElementById('create-group-input');
+
+const addNewGroupBtn = document.querySelector('#create-group-btn');
+
+const errEl = document.getElementById('error');
+
+addNewGroupBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const newBillOb = newGroupString();
+  if (inputNameEl.value.length < 1) {
+    errEl.textContent = 'Input can not be empty';
+    return;
+  }
+
+  addNewGroup(newBillOb);
+  getAllGroupsToSelect(token);
+  inputNameEl.value = '';
+});
+
+function newGroupString() {
+  const articleObj = {
+    name: inputNameEl.value,
+  };
+  return articleObj;
+}
+async function addNewGroup(newBill) {
+  await postFetch('groups', token, newBill);
+}
