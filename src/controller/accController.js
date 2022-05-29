@@ -7,7 +7,7 @@ async function addUserToAccount(req, res) {
   const tokenFromHeaders = req.headers.authorization.split(' ')[1];
 
   const idFromToken = req.userId;
-  console.log('idFromToken', idFromToken);
+  // console.log('idFromToken', idFromToken);
 
   try {
     const saveResult = await addAccountDb(group_id, idFromToken);
@@ -17,7 +17,7 @@ async function addUserToAccount(req, res) {
     }
     res.status(400).json('New acc not added');
   } catch (error) {
-    console.log(' Error in POST/accounts ===', error);
+    // console.log(' Error in POST/accounts ===', error);
 
     res.sendStatus(500);
   }
@@ -26,12 +26,12 @@ async function addUserToAccount(req, res) {
 
 async function getAccountJoinGroup(req, res) {
   const idFromToken = req.userId;
-  console.log('idFromToken', idFromToken);
+  // console.log('idFromToken', idFromToken);
   try {
     const accountGroupArr = await accountsJoinGroupsDb(idFromToken);
     res.json(accountGroupArr);
   } catch (error) {
-    console.log('Get UserAccountJoinGroup error ===', error);
+    // console.log('Get UserAccountJoinGroup error ===', error);
     res.sendStatus(500);
   }
 }

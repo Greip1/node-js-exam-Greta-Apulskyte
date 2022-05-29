@@ -14,7 +14,7 @@ async function validateUser(req, res, next) {
     await schema.validateAsync(req.body, { abortEarly: false });
     next();
   } catch (error) {
-    console.log('schema.validateAsync error ===', error);
+    // console.log('schema.validateAsync error ===', error);
     res.status(400).json(error.details);
   }
 }
@@ -31,15 +31,15 @@ async function validateToken(req, res, next) {
   }
   try {
     const tokenPayload = jwt.verify(tokenFromHeaders, jwtSecret);
-    console.log('tokenPayload', tokenPayload);
-    console.log('tokenPayload.userId====', tokenPayload.userId);
+    // console.log('tokenPayload', tokenPayload);
+    // console.log('tokenPayload.userId====', tokenPayload.userId);
     const userIdFromReq = tokenPayload.userId;
     // budas perduoti userId i tolimesne funkcija
     req.userId = userIdFromReq;
-    console.log('userIdFromReq', userIdFromReq);
+    // console.log('userIdFromReq', userIdFromReq);
     next();
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(403).json({
       success: false,
       error: 'blogas tokenas',
@@ -47,7 +47,6 @@ async function validateToken(req, res, next) {
   }
 }
 // ---------------------------------------------------------
-// --------------------------------------------------------
 module.exports = {
   validateUser,
   validateToken,

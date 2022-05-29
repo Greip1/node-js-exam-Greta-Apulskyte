@@ -23,7 +23,6 @@ if (!token) {
 
 async function getMyGroups(token) {
   const groupsArr = await getFetch(`bills/${groupId[1]}`, token);
-  // console.log('groupsArr ===', groupsArr);
   if (groupsArr.success === false) {
     alert('Neaktyvus vartotojas, prasome prisijungti');
     window.location.replace('login.html');
@@ -49,7 +48,7 @@ function createCard(obj) {
   creatElFn('td', obj.description, 'table-description-data', trEl);
   creatElFn('td', `$${obj.amount}`, 'table-amount-data', trEl);
 }
-// ====================add bill
+// =============================add bill
 //  =============================
 
 const formEl = document.forms[0];

@@ -96,7 +96,7 @@ function asignGroupString() {
 async function asignGroup(newGr) {
   postFetch('accounts', token, newGr);
 }
-// ================================================================================================
+// ============================================
 // ============add new group
 
 const inputNameEl = document.getElementById('create-group-input');

@@ -41,7 +41,6 @@ formEl.addEventListener('submit', async (event) => {
     password: formEl.elements.password.value.trim(),
     repPassword: formEl.elements.repPassword.value.trim(),
   };
-  console.log('cia reg on', regObj);
 
   if (
     formEl.elements.password.value.trim() !== formEl.elements.repPassword.value.trim()
@@ -54,9 +53,7 @@ formEl.addEventListener('submit', async (event) => {
   checkInput(regObj.full_name, 'fullName', ['required', 'minLength-5']);
   checkInput(regObj.email, 'email', ['required', 'minLength-4', 'email', 'include-@']);
   checkInput(regObj.password, 'password', ['required', 'minLength-5', 'maxLength-10']);
-  console.log('FE errorsArr ===', errorsArr);
   // --------------------------------------------------
-  // jei yra klaidu FE tada nesiunciam uzklausos
   if (errorsArr.length) {
     handleError(errorsArr);
     return;
@@ -90,10 +87,8 @@ async function registerFetch(full_name, email, password) {
     body: JSON.stringify(registerObj),
   });
   if (resp.status === 201) {
-    // success
     handleError('Registration successful, please Login');
   } else {
-    // fail
     const res = await resp.json();
     console.log(res);
     handleError(res);
@@ -101,7 +96,6 @@ async function registerFetch(full_name, email, password) {
 }
 // -------------------------------------------------
 function clearErrors() {
-  // errorsArr = [];
   clearErrorsArr();
   errorMsgElementsArr.forEach((htmlElement) => {
     htmlElement.textContent = '';

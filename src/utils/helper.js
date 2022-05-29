@@ -11,7 +11,7 @@ async function executeDb(sql, dataToDBArr = []) {
     const [result] = await conn.execute(sql, dataToDBArr);
     return result;
   } catch (error) {
-    console.log('Error in executeDb!!', error);
+    // console.log('Error in executeDb!!', error);
     throw new Error('Error in executeDb!!');
   } finally {
     conn?.end();

@@ -6,7 +6,7 @@ async function getAllGroups(req, res) {
     const usersArr = await getAllGroupsDb();
     res.json(usersArr);
   } catch (error) {
-    console.log('error in getting group route ===', error);
+    // console.log('error in getting group route ===', error);
     res.sendStatus(500);
   }
 }
@@ -22,7 +22,7 @@ async function postAllGroups(req, res) {
     }
     res.status(400).json('Error in adding new group ');
   } catch (error) {
-    console.log('POST /groups ===', error);
+    // console.log('POST /groups ===', error);
 
     res.sendStatus(500);
   }

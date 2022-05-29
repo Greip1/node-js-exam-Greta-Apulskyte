@@ -7,7 +7,7 @@ async function getUsers(req, res) {
     const usersArr = await getAllUsersDb();
     res.json(usersArr);
   } catch (error) {
-    console.log('error in getting user route ===', error);
+    // console.log('error in getting user route ===', error);
     res.sendStatus(500);
   }
 }
@@ -23,7 +23,7 @@ async function regUser(req, res) {
     }
     res.status(400).json('No user was created');
   } catch (error) {
-    console.log('POST /register ===', error);
+    // console.log('POST /register ===', error);
     if (error.code === 'ER_DUP_ENTRY') {
       res.status(400).json('This user alredy exists');
       return;
@@ -39,7 +39,7 @@ async function loginUser(req, res) {
 
   const foundUserArr = await findUserByEmail(gotEmail);
   const foundUser = foundUserArr[0];
-  console.log('foundUser ===', foundUser);
+  // console.log('foundUser ===', foundUser);
   if (!foundUser) {
     res.status(400).json('This email or password was not found (email)');
     return;

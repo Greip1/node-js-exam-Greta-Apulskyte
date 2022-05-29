@@ -26,17 +26,14 @@ passEl.addEventListener('input', (event) => {
 
 formEl.addEventListener('submit', async (event) => {
   event.preventDefault();
-  console.log('js submit form');
   const loginObj = {
     email: formEl.elements.email.value.trim(),
     password: formEl.elements.password.value.trim(),
   };
-  console.log('loginObj ===', loginObj);
   // ------------------------------------------------
   clearErrors();
   checkInput(loginObj.email, 'email', ['required', 'minLength-4', 'email', 'include-@']);
   checkInput(loginObj.password, 'password', ['required', 'minLength-5', 'maxLength-10']);
-  console.log('FE errorsArr ===', errorsArr);
   // --------------------------------------------------
   if (errorsArr.length) {
     handleError(errorsArr);
@@ -51,10 +48,9 @@ formEl.addEventListener('submit', async (event) => {
     body: JSON.stringify(loginObj),
   });
   const dataInJs = await resp.json();
-  console.log('dataInJs ===', dataInJs);
 
   if (dataInJs.success === true) {
-    console.log('login success');
+    // console.log('login success');
     errroEl.textContent = '';
 
     const { token } = dataInJs;
@@ -62,13 +58,13 @@ formEl.addEventListener('submit', async (event) => {
 
     window.location.replace('groups.html');
   } else {
-    console.log('login fail');
+    // console.log('login fail');
     handleError(dataInJs);
   }
 });
 // ---------------------------------------------------
 function handleError(msg) {
-  // errroEl.textContent = '';
+  errroEl.textContent = '';
   if (typeof msg === 'string') {
     errroEl.textContent = msg;
   }
@@ -81,7 +77,6 @@ function handleError(msg) {
   }
 }
 function clearErrors() {
-  // errorsArr = [];
   clearErrorsArr();
   errorMsgElementsArr.forEach((htmlElement) => {
     htmlElement.textContent = '';
