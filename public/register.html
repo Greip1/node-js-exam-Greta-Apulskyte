@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/register.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="img-header"></div>
+      <h2 class="header-title">Split Bill Manager</h2>
+      <p class="header-text">BEST IN MARKET</p>
+    </header>
+    <main>
+      <div class="form-container">
+        <form id="register">
+          <h3 id="error"></h3>
+          <h1 class="form-header">Register</h1>
+
+          <label for="fullName"> Full Name</label>
+          <input type="text" name="fullName" />
+          <p class="error-msg"></p>
+
+          <label for="email"> Email</label>
+          <input type="email" name="email" />
+          <p class="error-msg"></p>
+
+          <label for="password"> Password</label>
+          <input type="password" name="password" />
+          <p class="error-msg"></p>
+
+          <label for="repPassword">Repeat Password</label>
+          <input type="password" name="repPassword" />
+          <p class="error-msg"></p>
+
+          <br />
+          <button class="btn" type="submit">Register</button>
+        </form>
+        <div class="after-form-container">
+          <p class="after-form-container-text">
+            Or perhaps, just <a href="./login.html">LOGIN?</a>
+          </p>
+        </div>
+      </div>
+    </main>
+    <footer>Copyright© Greta 2022</footer>
+  </body>
+</html>

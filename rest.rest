@@ -1,4 +1,74 @@
-
+### 
 GET http://localhost:3001
 ###
+### users
 
+GET http://localhost:3001/users
+###
+### register
+POST http://localhost:3001/register
+Content-Type: application/json
+
+{    
+    "full_name": "Joan Joanes",
+    "email": "joan.john@email.com",
+    "password": "123456"
+    }
+###
+### login
+POST http://localhost:3001/login
+Content-Type: application/json
+
+{    
+    "full_name": "Joan Joanes",
+    "email": "joan.john@email.com",
+    "password": "123456"
+    }
+### ===========================================================================
+### post acc
+POST http://localhost:3001/accounts 
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlhdCI6MTY1MzY0NDU1MiwiZXhwIjoxNjUzNjUxNzUyfQ.saWN9Y5YSh9wVJ2cZwwL8UU9Z0jkRdpkrqLiNkIaGaM
+
+{
+"group_id": "3", 
+"user_id": "7"
+}
+### get acc
+GET http://localhost:3001/accounts 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlhdCI6MTY1MzY2MzI0MywiZXhwIjoxNjUzNjcwNDQzfQ.lvu2XZe-JswPyhhM6kcnEjLgA0txrLjE0U8OnPxnzcQ
+
+###=============================================================================
+###  get bill
+GET http://localhost:3001/bills/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlhdCI6MTY1MzU4MTk1MCwiZXhwIjoxNjUzNTg5MTUwfQ.RG091qWLMmP-rHIPrWuKmyBrtMTCJg-elFKsSVL3QAg
+###
+###post bill
+POST http://localhost:3001/bills?group_id=2
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlhdCI6MTY1MzU4MTk1MCwiZXhwIjoxNjUzNTg5MTUwfQ.RG091qWLMmP-rHIPrWuKmyBrtMTCJg-elFKsSVL3QAg
+
+{
+"group_id": 2, 
+"amount": 3500, 
+"description": "For Flight ticket"
+}
+###
+### groups =============================
+GET http://localhost:3001/groups
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjksImlhdCI6MTY1MzgyMTA5NCwiZXhwIjoxNjUzODI4Mjk0fQ.Xu4sxX6RFVJ6OHfp2EbUpHB8ijiZx85MKyN7JL_F2Vw
+
+###
+### acc =============================
+GET http://localhost:3001/accounts/dist
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjksImlhdCI6MTY1MzgyMTA5NCwiZXhwIjoxNjUzODI4Mjk0fQ.Xu4sxX6RFVJ6OHfp2EbUpHB8ijiZx85MKyN7JL_F2Vw
+
+###
+
+POST http://localhost:3001/groups
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjksImlhdCI6MTY1MzgyMTA5NCwiZXhwIjoxNjUzODI4Mjk0fQ.Xu4sxX6RFVJ6OHfp2EbUpHB8ijiZx85MKyN7JL_F2Vw
+
+{
+"name": "Trip back home"
+}

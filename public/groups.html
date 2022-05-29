@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Groups</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/groups.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h2 class="header-title">Split Bill Manager</h2>
+      <p class="header-text">BEST IN MARKET</p>
+    </header>
+    <main>
+      <button class="btn btn-logout"><a href="./login.html">Log out</a></button>
+      <div class="main-card-container">
+        <h1 class="main-header">Select Group</h1>
+        <div class="cards-container">
+          <h2 class="loading">LOADING...</h2>
+        </div>
+
+        <div class="creating-adding-groups-container">
+          <!--  -->
+          <div class="add-group-container">
+            <h3 class="add-group-title">Asign group to your account</h3>
+            <br />
+            <form id="add-group-from">
+              <label class="form-label-title" for="add-group">Groups list</label><br />
+              <select name="add-group" id="add-group-select"></select
+              ><br />
+              <button class="btn add-group-btn">Add</button>
+            </form>
+          </div>
+          <!--  -->
+          <div class="create-group-container">
+            <h3 class="create-group-title">Create new group</h3>
+            <br />
+            <p id="error"></p>
+            <form id="create-group-from">
+              <label class="form-label-title" for="create-group">Group name</label><br />
+              <input
+                type="text "
+                name="create-group"
+                id="create-group-input"
+                placeholder="New group name"
+              />
+              <br />
+              <button id="create-group-btn" class="btn create-group-btn">Create</button>
+            </form>
+          </div>
+          <!--  -->
+        </div>
+      </div>
+    </main>
+    <footer>Copyright© Greta 2022</footer>
+  </body>
+</html>

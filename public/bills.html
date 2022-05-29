@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bills</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/bills.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h2 class="header-title">Split Bill Manager</h2>
+      <p class="header-text">BEST IN MARKET</p>
+    </header>
+    <main>
+      <button class="btn btn-logout"><a href="./login.html">Log out</a></button>
+
+      <div class="main-card-container">
+        <h1 class="main-header">Group's bills</h1>
+        <h2 class="groups-title"></h2>
+        <div class="table-container">
+          <table class="table-data"></table>
+        </div>
+        <button class="btn btn-logout"><a href="./groups.html">Back to Groups</a></button>
+
+        <div class="add-bill-container">
+          <h3 class="add-group-title">Add bill</h3>
+          <br />
+          <form id="add-bill-from">
+            <p id="error"></p>
+            <label for="amount">Amount</label>
+            <input type="number" name="amount" placeholder="$" />
+
+            <label for="description">Description</label>
+            <input type="text" name="description" placeholder="You paid for.." />
+            <br />
+            <button class="btn add-group-btn">Add</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer>Copyright© Greta 2022</footer>
+  </body>
+</html>

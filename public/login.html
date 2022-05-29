@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="./js/login.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h2 class="header-title">Split Bill Manager</h2>
+      <p class="header-text">BEST IN MARKET</p>
+    </header>
+    <main>
+      <div class="form-container">
+        <form id="login">
+          <h3 id="error"></h3>
+          <h1 class="form-header">Login</h1>
+
+          <label for="email"> Email</label>
+          <input type="email" name="email" />
+          <p class="error-msg"></p>
+
+          <label for="password"> Password</label>
+          <input type="password" name="password" />
+          <p class="error-msg"></p>
+
+          <br />
+          <button class="btn" type="submit">Login</button>
+        </form>
+        <div class="after-form-container">
+          <p class="after-form-container-text">
+            Don't have an account yet? Register <a href="./register.html">HERE</a>
+          </p>
+        </div>
+      </div>
+    </main>
+    <footer>Copyright© Greta 2022</footer>
+  </body>
+</html>

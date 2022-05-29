@@ -1,0 +1,35 @@
+const { addBillDb, getBillbyGroupIdDb } = require('../model/billsModel');
+
+// ------------------------------
+async function getBillbyGroupId(req, res) {
+  const { group_id } = req.params;
+  try {
+    const billArr = await getBillbyGroupIdDb(group_id);
+    res.json(billArr);
+  } catch (error) {
+    // console.log('Error in get getBillbyGroupId ===', error);
+    res.sendStatus(500);
+  }
+}
+
+async function addBill(req, res) {
+  const { group_id } = req.query;
+  const { amount, description } = req.body;
+
+  try {
+    const saveRes = await addBillDb(group_id, amount, description);
+    if (saveRes.affectedRows === 1) {
+      res.sendStatus(201);
+      return;
+    }
+    res.status(400).json('Error in adding bill, no bill was added');
+  } catch (error) {
+    res.sendStatus(500);
+  }
+}
+
+// -----------------------------
+module.exports = {
+  getBillbyGroupId,
+  addBill,
+};

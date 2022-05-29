@@ -1,0 +1,222 @@
+@import 'reset.css';
+
+:root {
+  --main-color: #c47de0;
+}
+body {
+  background: linear-gradient(135deg, #b1defc, #d0a4e2);
+  background-size: cover;
+  align-items: center;
+  padding: 20px;
+  gap: 50px;
+  color: rgb(77, 76, 78);
+}
+header {
+  margin-top: 30px;
+  margin-left: 10%;
+}
+main {
+  margin: 20px;
+}
+.header-text {
+  color: #c887e1;
+font-weight: bold
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+.form-container {
+  margin: 50px auto;
+  max-width: 700px;
+  width: 100%;
+  background-color: rgb(249, 237, 250);
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  background-image: linear-gradient(-209deg, #ede8fa 50%, #e2ecfd 50%);
+}
+
+.form-header {
+  margin-bottom: 15px;
+  color: var(--main-color);
+}
+
+.btn {
+  margin-bottom: 15px;
+  margin-top: 10px;
+  background-color: var(--main-color);
+  border: navajowhite;
+  padding: 10px 30px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.btn:hover {
+  transform: translatey(3px);
+}
+
+input,
+select {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+
+
+/* -----------------------error--------------- */
+.error-msg {
+  color: rgb(182, 49, 200);
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+.invalid-input {
+  border: 1px solid rgb(103, 15, 113);
+  background-color: rgb(244, 197, 245);
+}
+.after-form-container p {
+  font-size: 20px;
+  padding-top: 20px;
+  text-align: right;
+}
+.after-form-container-text a {
+  text-decoration: underline;
+  letter-spacing: 2px;
+}
+.after-form-container-text a:hover {
+  color: var(--main-color);
+  font-size: 22px;
+}
+#error {
+color: var(--main-color);
+font-weight: bold;
+}
+/* =======================groups page */
+
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  margin: 50px auto;
+  max-width: 900px;
+  width: 100%;
+  background-color: rgb(249, 243, 250);
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.card {
+  text-align: center;
+  background-color: #fff;
+  background: linear-gradient(-209deg, #ede8fa 50%, #e2ecfd 50%);
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  margin: 10px 2px;
+  padding: 20px 2px;
+}
+.card-id {
+  color: var(--main-color);
+  margin: 15px;
+  font-style: italic;
+  font-weight: bold;
+}
+.card-name {
+  margin: 15px;
+}
+.card-button {
+  background-color: #c89adb;
+}
+
+.creating-adding-groups-container {
+  display: flex;
+gap: 30%;
+  margin: 50px auto;
+  max-width: 900px;
+  width: 100%;
+  background-color: rgb(249, 243, 250);
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.form-label-title{
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+/* ============================bills page */
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 90%;
+}
+td,
+th {
+  border: none;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #e2ecfd;
+}
+
+.add-bill-container {
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+.main-header {
+  text-align: center;
+}
+.btn-logout {
+margin: 20px ;
+margin-left:80% ;
+}
+
+footer{
+  text-align: center;
+  padding: 50px;
+  margin: 20px auto;
+}
+
+
+/* =============responsive css */
+
+@media screen and (max-width: 760px){
+    .cards-container {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+
+    }
+    .creating-adding-groups-container{
+      flex-direction: column;
+    }
+    select {
+      width: 60%;
+
+    }
+   .add-group-btn{
+     margin-bottom: 30px;
+   }
+
+}
+
+@media screen and (max-width: 450px) {
+  
+  .cards-container {
+    grid-template-columns:1fr;
+
+}
+
+}
