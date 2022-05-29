@@ -9,6 +9,7 @@ const errroEl = document.getElementById('error');
 const nameEl = formEl.elements.fullName;
 const emailEl = formEl.elements.email;
 const passEl = formEl.elements.password;
+const passRepEl = formEl.elements.repPassword;
 
 const errorMsgElementsArr = document.querySelectorAll('.error-msg');
 
@@ -30,6 +31,12 @@ passEl.addEventListener('input', (event) => {
   checkInput(el.value, el.name, ['required', 'minLength-5', 'maxLength-10']);
   handleError(errorsArr);
 });
+passRepEl.addEventListener('input', (event) => {
+  clearErrors();
+  const el = event.currentTarget;
+  checkInput(el.value, el.name, ['required', 'minLength-5', 'maxLength-10']);
+  handleError(errorsArr);
+});
 // ----------------------------------------------------
 
 formEl.addEventListener('submit', async (event) => {
@@ -45,7 +52,7 @@ formEl.addEventListener('submit', async (event) => {
   if (
     formEl.elements.password.value.trim() !== formEl.elements.repPassword.value.trim()
   ) {
-    handleError('Data incorrect: skirtingi slaptaz.');
+    handleError('Data incorrect: passwords do not match.');
     return;
   }
 

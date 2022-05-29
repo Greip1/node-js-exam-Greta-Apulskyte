@@ -63,7 +63,7 @@ btnSubmitEl.addEventListener('click', (e) => {
   e.preventDefault();
   const newBillOb = articleString();
   if (inputDescriptionEl.value.length < 1 || inputAmountEl.value.length < 1) {
-    errEl.textContent = 'Uzpildykite visus ivedimo laukus';
+    errEl.textContent = 'Input can not be empty';
     return;
   }
 

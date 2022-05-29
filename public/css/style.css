@@ -95,6 +95,10 @@ select {
   color: var(--main-color);
   font-size: 22px;
 }
+#error {
+color: var(--main-color);
+font-weight: bold;
+}
 /* =======================groups page */
 
 .cards-container {
